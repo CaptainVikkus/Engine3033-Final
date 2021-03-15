@@ -27,7 +27,7 @@
                     "id": "b1590fcf-ba71-4554-b03e-efdc1ec29424",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Run",
@@ -41,6 +41,14 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "d4a448ff-e5d4-47ba-8a87-e107244b3e05",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "9617eefd-e78a-44c9-a1a8-055efbfb1cbe",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -319,6 +327,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9fe16c98-14f5-4a4c-adeb-d83bb44bf802",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1832eccc-99d6-402d-b557-7c95b11430b5",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1347673567671696958, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1433388474477016798, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
@@ -182,18 +178,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7325371792368004590, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7325371792368004590, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
-      propertyPath: m_DefaultControlScheme
-      value: Keyboard&Mouse
-      objectReference: {fileID: 0}
-    - target: {fileID: 7325371792368004590, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
-      propertyPath: m_NotificationBehavior
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 6691801671286814071, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
+      propertyPath: aimLocation
+      value: 
+      objectReference: {fileID: 863986634}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
 --- !u!1 &674383522
@@ -384,3 +372,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!4 &863986634 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6010904172053723873, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
+  m_PrefabInstance: {fileID: 376059409}
+  m_PrefabAsset: {fileID: 0}
