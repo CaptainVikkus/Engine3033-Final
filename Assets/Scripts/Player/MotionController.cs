@@ -37,7 +37,7 @@ public class MotionController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         meshAgent = GetComponent<NavMeshAgent>();
     }
-    public void OnMovement(InputValue value)
+    public void OnMove(InputValue value)
     {
         InputVector = value.Get<Vector2>();
 
