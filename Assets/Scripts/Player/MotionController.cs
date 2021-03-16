@@ -53,6 +53,9 @@ public class MotionController : MonoBehaviour
 
     public void OnJump(InputValue value)
     {
+        //REMOVE WHEN FIXED
+        return;
+        //BROKEN
         if (isJumping) return;
 
         isJumping = value.isPressed;

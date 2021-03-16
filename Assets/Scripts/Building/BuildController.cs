@@ -9,7 +9,7 @@ public class BuildController : MonoBehaviour
     [SerializeField] private GameObject BrickWall;
     [SerializeField] private GameObject SteelWall;
     [SerializeField] private Vector3 placeOffset = new Vector3(2, 1, 0);
-    [SerializeField] private float placeAngle = 10f;
+    [SerializeField] private float placeAngle = 20f;
     public InventoryController.Material buildMat;
     public LayerMask groundLayer;
 

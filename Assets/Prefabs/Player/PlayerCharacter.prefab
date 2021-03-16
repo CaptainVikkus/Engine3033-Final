@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 2
   runSpeed: 4
-  jumpForce: 10
+  jumpForce: 100
   isRunning: 0
   isJumping: 0
 --- !u!114 &2381336186895565534
@@ -1418,7 +1418,12 @@ MonoBehaviour:
   WoodWall: {fileID: 3657226799867839235, guid: 45992d326a7c5014782ad1d3a6551987, type: 3}
   BrickWall: {fileID: 3657226799867839235, guid: b42bffc06f070764abfb7e68faad85d2, type: 3}
   SteelWall: {fileID: 3657226799867839235, guid: 9628de31a7cce454ab695ccba13b900b, type: 3}
+  placeOffset: {x: 2, y: 1, z: 0}
+  placeAngle: 20
   buildMat: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1433400442728634860
 GameObject:
   m_ObjectHideFlags: 0
