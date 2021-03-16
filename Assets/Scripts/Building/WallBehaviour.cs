@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallBehaviour : MonoBehaviour, IKillable, IDamageable, IBuildable
 {
+    public Transform placePos;
     [SerializeField] private float health = 5.0f;
     public int cost = 5;
 
@@ -31,6 +32,7 @@ public class WallBehaviour : MonoBehaviour, IKillable, IDamageable, IBuildable
 
     public bool CanBuild()
     {
+        Debug.Log("Contacts: " + contacts.ToString());
         return contacts <= 0;
     }
 

@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 376059411, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
+      propertyPath: placeAngle
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 376059411, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1433388474477016798, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter

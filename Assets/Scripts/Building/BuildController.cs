@@ -9,51 +9,61 @@ public class BuildController : MonoBehaviour
     [SerializeField] private GameObject BrickWall;
     [SerializeField] private GameObject SteelWall;
     [SerializeField] private Vector3 placeOffset = new Vector3(2, 1, 0);
+    [SerializeField] private float placeAngle = 10f;
     public InventoryController.Material buildMat;
+    public LayerMask groundLayer;
 
     private GameObject placingWall;
+    private WallBehaviour wall;
     public bool isBuilding { get; private set; }
+
+
+    private void Update()
+    {
+        if (isBuilding)
+        {
+            Vector3 rayStart = Quaternion.AngleAxis(placeAngle, transform.right) * transform.forward;
+            if (Physics.Raycast(transform.position + transform.up, rayStart, out RaycastHit hit, 10f, groundLayer))
+            {
+                placingWall.transform.position = hit.point + placingWall.transform.up * (placingWall.transform.localScale.y / 1.9f);
+            }
+        }
+    }
 
     void StartBuilding(InventoryController.Material material)
     {
-        Vector3 placement = transform.position +
-            transform.right * placeOffset.x +
-            transform.up * placeOffset.y +
-            transform.forward * placeOffset.z;
-
         switch (material)
         {
             case InventoryController.Material.Wood:
-                placingWall = Instantiate(WoodWall, placement, transform.rotation, transform);
+                placingWall = Instantiate(WoodWall, transform);
                 break;
             case InventoryController.Material.Brick:
-                placingWall = Instantiate(BrickWall, placement, transform.rotation, transform);
+                placingWall = Instantiate(BrickWall, transform);
                 break;
             case InventoryController.Material.Steel:
-                placingWall = Instantiate(SteelWall, placement, transform.rotation, transform);
+                placingWall = Instantiate(SteelWall, transform);
                 break;
             default:
-                placingWall = Instantiate(WoodWall, placement, transform.rotation, transform);
+                placingWall = Instantiate(WoodWall, transform);
                 break;
         }
 
-        placingWall.GetComponent<WallBehaviour>().Place();
+        wall = placingWall.GetComponent<WallBehaviour>();
+        wall.Place();
         buildMat = material;
         isBuilding = true;
     }
 
     void PlaceBuilding()
     {
-        WallBehaviour build = placingWall.GetComponent<WallBehaviour>();
-
         //Build does not intersect anything
-        if (build.CanBuild())
+        if (wall.CanBuild())
         {
-
+            Debug.Log("Placing...");
             //check if resources are available
-            if (InventoryController.RemoveResource(buildMat, build.cost))
+            if (InventoryController.RemoveResource(buildMat, wall.cost))
             {
-                build.Build();
+                wall.Build();
                 placingWall.transform.parent = null;
                 placingWall = null;
 
