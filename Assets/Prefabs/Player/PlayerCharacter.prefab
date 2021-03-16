@@ -1178,6 +1178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437418981450793728}
   - component: {fileID: 1347673567671696958}
+  - component: {fileID: 1115226186434705887}
   - component: {fileID: 7325371792368004590}
   - component: {fileID: 4672514252289495451}
   - component: {fileID: 3295216206013433895}
@@ -1185,6 +1186,7 @@ GameObject:
   - component: {fileID: 84581000731548662}
   - component: {fileID: 2381336186895565534}
   - component: {fileID: 6691801671286814071}
+  - component: {fileID: 376059411}
   m_Layer: 3
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -1257,6 +1259,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1115226186434705887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433388474477016798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91e79f763ee794a9a669dd5942cd6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7325371792368004590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,6 +1402,23 @@ MonoBehaviour:
   weaponToEquip: {fileID: 1900586067242068, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
   weaponEquipSocket: {fileID: 2130750249316622704}
   aimLocation: {fileID: 6010904172053723873}
+  hipTwist: {fileID: 1435992790535040962}
+--- !u!114 &376059411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433388474477016798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425026accd976c2408aab9769f5c150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WoodWall: {fileID: 3657226799867839235, guid: 45992d326a7c5014782ad1d3a6551987, type: 3}
+  BrickWall: {fileID: 3657226799867839235, guid: b42bffc06f070764abfb7e68faad85d2, type: 3}
+  SteelWall: {fileID: 3657226799867839235, guid: 9628de31a7cce454ab695ccba13b900b, type: 3}
+  buildMat: 0
 --- !u!1 &1433400442728634860
 GameObject:
   m_ObjectHideFlags: 0

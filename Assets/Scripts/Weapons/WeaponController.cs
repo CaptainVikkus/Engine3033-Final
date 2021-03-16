@@ -39,7 +39,6 @@ public class WeaponController : MonoBehaviour
     [SerializeField] protected WeaponStats stats;
 
 
-    protected Camera camera;
     protected WeaponEquip weaponHolder;
     protected ParticleSystem fireFX;
 
@@ -50,7 +49,6 @@ public class WeaponController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        camera = Camera.main;
     }
 
     public void Initialize(WeaponEquip holder)

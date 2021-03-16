@@ -9,6 +9,8 @@ public class WeaponEquip : MonoBehaviour
     [SerializeField] private GameObject weaponToEquip;
     [SerializeField] private Transform weaponEquipSocket;
     [SerializeField] private Transform aimLocation;
+    [SerializeField] private Transform hipTwist;
+    private Quaternion hipTwistStart;
 
     private WeaponController equippedWeapon;
     private Transform gripLocation;
@@ -31,12 +33,12 @@ public class WeaponEquip : MonoBehaviour
     {
         motController = GetComponent<MotionController>();
         animator = GetComponent<Animator>();
-
     }
 
     private void Start()
     {
         EquipWeapon();
+        hipTwistStart = hipTwist.rotation;
     }
 
     private void OnAnimatorIK(int layerIndex)
@@ -57,12 +59,15 @@ public class WeaponEquip : MonoBehaviour
 
         gripLocation = equippedWeapon.gripLocation;
         animator.SetInteger(WeaponTypeHash, (int)equippedWeapon.WeaponStat.WeaponType);
-
+        animator.SetFloat(AimHorizontalHash, 0.5f);
+        animator.SetFloat(AimVerticalHash, 0.5f);
         //Teacher put event
     }
 
     private void OnFire(InputValue value)
     {
+        if (enabled == false) return;
+
         FirePressed = value.isPressed;
 
         if (FirePressed)
@@ -80,10 +85,10 @@ public class WeaponEquip : MonoBehaviour
 
     private void OnLook(InputValue value)
     {
-        Vector3 lookVector = aimLocation.forward;
-
-        animator.SetFloat(AimHorizontalHash, lookVector.x);
-        animator.SetFloat(AimVerticalHash, lookVector.y);
+        hipTwist.rotation = Quaternion.Euler(
+            hipTwistStart.eulerAngles.x,
+            hipTwistStart.eulerAngles.y,
+            hipTwistStart.eulerAngles.z + aimLocation.rotation.eulerAngles.x);
     }
 
     private void StartFiring()
