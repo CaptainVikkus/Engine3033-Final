@@ -68,8 +68,13 @@ public class BuildController : MonoBehaviour
                 placingWall = null;
 
                 isBuilding = false;
+                return;
             }
         }
+
+        //Only reach here on failed placement
+        Debug.Log("Failed To Place");
+        CancelBuilding();
     }
 
     public void CancelBuilding()
@@ -91,4 +96,27 @@ public class BuildController : MonoBehaviour
         }
     }
 
+    private void OnCycle(InputValue value)
+    {
+        if (enabled == false) return;
+        int newMat = (int)buildMat;
+
+        //Up or Down
+        if (value.Get<float>() > 0)
+            newMat--;
+        else if (value.Get<float>() < 0)
+            newMat++;
+
+        //Check for change
+        if (newMat == (int)buildMat)
+            return;
+
+        //Cycle Mat
+        if (newMat > (int)InventoryController.Material.Steel)
+            buildMat = InventoryController.Material.Wood;
+        else if (newMat < (int)InventoryController.Material.Wood)
+            buildMat = InventoryController.Material.Steel;
+        else
+            buildMat = (InventoryController.Material)newMat;
+    }
 }

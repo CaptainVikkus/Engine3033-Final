@@ -450,6 +450,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1707620489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 376059411, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
+  m_PrefabInstance: {fileID: 376059409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425026accd976c2408aab9769f5c150a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1707620490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6691801671286814071, guid: ddcd920641eab0c479b62d3fdd272ca9, type: 3}
+  m_PrefabInstance: {fileID: 376059409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935801a3ee85e014cbdb9343a6dacae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5772679184175050339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -514,6 +536,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1810330109443544277, guid: 338fd845b01613d4abda2c2463b1140e, type: 3}
+      propertyPath: builder
+      value: 
+      objectReference: {fileID: 1707620489}
+    - target: {fileID: 1810330109443544277, guid: 338fd845b01613d4abda2c2463b1140e, type: 3}
+      propertyPath: weaponBag
+      value: 
+      objectReference: {fileID: 1707620490}
     - target: {fileID: 6154291502002909906, guid: 338fd845b01613d4abda2c2463b1140e, type: 3}
       propertyPath: m_Pivot.x
       value: 0

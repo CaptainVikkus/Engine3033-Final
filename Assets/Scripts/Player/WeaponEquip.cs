@@ -12,7 +12,7 @@ public class WeaponEquip : MonoBehaviour
     [SerializeField] private Transform hipTwist;
     private Quaternion hipTwistStart;
 
-    private WeaponController equippedWeapon;
+    public WeaponController equippedWeapon;
     private Transform gripLocation;
     private bool FirePressed = false;
     public bool isFiring { get; private set; }
