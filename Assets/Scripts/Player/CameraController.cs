@@ -10,8 +10,14 @@ public class CameraController : MonoBehaviour
     public float xSensitivity = 1f;
     public float ySensitivity = 1f;
     public bool invertY = false;
+    public CursorLockMode cursorMode;
 
     private Vector2 previousLook;
+
+    private void Start()
+    {
+        Cursor.lockState = cursorMode;
+    }
 
     private void OnLook(InputValue value)
     {

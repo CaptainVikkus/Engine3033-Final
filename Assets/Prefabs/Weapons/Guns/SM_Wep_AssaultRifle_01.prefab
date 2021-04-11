@@ -371,7 +371,7 @@ MonoBehaviour:
     FireRate: 0.2
     FireDistance: 100
     Repeating: 1
-    ReloadSpeed: 0
+    ReloadSpeed: 1
     WeaponHitLayers:
       serializedVersion: 2
       m_Bits: 4294967295
@@ -387,7 +387,7 @@ GameObject:
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: cf632ed80bf1f46c980de6b1b8b903ef, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -399,7 +399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099128736099816917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0865, z: 0.721}
+  m_LocalPosition: {x: 0, y: 0.0865, z: 0.7285}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4023067158591890}

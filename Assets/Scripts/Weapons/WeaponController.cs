@@ -45,12 +45,6 @@ public class WeaponController : MonoBehaviour
     public bool Firing { get; private set; }
     public bool Reloading { get; private set; }
 
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-    }
-
     public void Initialize(WeaponEquip holder)
     {
         weaponHolder = holder;
@@ -85,6 +79,7 @@ public class WeaponController : MonoBehaviour
     public virtual void StartReloading()
     {
         Reloading = true;
+        if (fireFX) Destroy(fireFX.gameObject);
         Invoke(nameof(ReloadWeapon), stats.ReloadSpeed);
     }
 
@@ -96,7 +91,6 @@ public class WeaponController : MonoBehaviour
 
     protected virtual void ReloadWeapon()
     {
-        if (fireFX) Destroy(fireFX.gameObject);
 
         int bulletsToReload = stats.ClipSize - stats.BulletsAvailable;
         if (bulletsToReload < 0)
@@ -109,6 +103,8 @@ public class WeaponController : MonoBehaviour
             stats.BulletsInClip = stats.BulletsAvailable;
             stats.BulletsAvailable = 0;
         }
+
+        Reloading = false;
     }
 
 }

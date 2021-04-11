@@ -12,8 +12,8 @@ public class AK47Controller : WeaponController
             if (!fireFX)
                 fireFX = Instantiate(firingAnimation, muzzle).GetComponent<ParticleSystem>();
 
-            Ray ray = new Ray(muzzle.position, muzzle.forward);
-
+            Ray ray = new Ray(muzzle.position, transform.forward);
+            Debug.DrawLine(muzzle.position, transform.forward * stats.FireDistance, Color.yellow, .5f);
             //Check for a hit
             if (Physics.Raycast(ray, out RaycastHit hit,
                 stats.FireDistance, stats.WeaponHitLayers)) 
@@ -31,9 +31,15 @@ public class AK47Controller : WeaponController
     protected void OnBulletHit(RaycastHit hit)
     {
         //TODO: put damage here
-        var damageable = hit.collider.gameObject.GetComponent<ZombieController>();
-        if (damageable != null)
+        ZombieController damageable;
+        if (hit.collider.gameObject.TryGetComponent(out damageable))
+        {
             damageable.Damage(stats.Damage);
-        Debug.Log("HIT!");
+            Debug.Log("Zombie Hit");
+        }
+        else
+        {
+            Debug.Log("HIT!");
+        }
     }
 }

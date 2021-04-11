@@ -69,10 +69,13 @@ public class ZombieController : MonoBehaviour, IDamageable, IKillable
     {
         SpawnerManager.numZombies--;
         LootSpawner.SpawnLoot(10, transform);
+        Destroy(this.gameObject);
     }
 
     public void Damage(float damageTaken)
     {
         health += damageTaken;
+        if (health <= 0)
+            Kill();
     }
 }

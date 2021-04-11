@@ -83,13 +83,13 @@ public class WeaponEquip : MonoBehaviour
         StartReloading();
     }
 
-    private void OnLook(InputValue value)
-    {
-        hipTwist.rotation = Quaternion.Euler(
-            hipTwistStart.eulerAngles.x,
-            hipTwistStart.eulerAngles.y,
-            hipTwistStart.eulerAngles.z + aimLocation.rotation.eulerAngles.x);
-    }
+    //private void OnLook(InputValue value)
+    //{
+    //    hipTwist.rotation = Quaternion.Euler(
+    //        hipTwistStart.eulerAngles.x,
+    //        hipTwistStart.eulerAngles.y + aimLocation.rotation.eulerAngles.y,
+    //        hipTwistStart.eulerAngles.z);
+    //}
 
     private void StartFiring()
     {
@@ -114,6 +114,7 @@ public class WeaponEquip : MonoBehaviour
         if (equippedWeapon.WeaponStat.BulletsAvailable <= 0) return;
 
         isReloading = true;
+        animator.SetBool(IsReloadingHash, isReloading);
         equippedWeapon.StartReloading();
         Invoke(nameof(StopReloading), equippedWeapon.WeaponStat.ReloadSpeed);
     }
@@ -121,8 +122,6 @@ public class WeaponEquip : MonoBehaviour
     private void StopReloading()
     {
         isReloading = false;
-
-        if (!FirePressed) return;
-        StartFiring(); //No Fire Delay
+        animator.SetBool(IsReloadingHash, isReloading);
     }
 }
