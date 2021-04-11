@@ -57,7 +57,7 @@ public class Timer
 public class LevelManager : Singleton<LevelManager>
 {
     [Range(1, 10)]
-    public int Difficulty = 1;
+    public static int Difficulty = 1;
     public Vector3 Timer = new Vector3(0, 5, 0);
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI difficultyText;
