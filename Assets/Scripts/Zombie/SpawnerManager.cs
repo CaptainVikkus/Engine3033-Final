@@ -46,6 +46,7 @@ public class SpawnerManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, spawnBox);
     }
 }

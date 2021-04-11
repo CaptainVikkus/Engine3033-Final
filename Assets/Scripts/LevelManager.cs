@@ -60,7 +60,7 @@ public class LevelManager : Singleton<LevelManager>
     public int Difficulty = 1;
     public Vector3 Timer = new Vector3(0, 5, 0);
     public TextMeshProUGUI timerText;
-
+    public TextMeshProUGUI difficultyText;
     private Timer clock;
     private bool won;
 
@@ -70,6 +70,7 @@ public class LevelManager : Singleton<LevelManager>
         clock = new Timer(Timer.x, Timer.y, Timer.z);
         SpawnerManager.spawnTime /= Difficulty;
         SpawnerManager.maxZombies = Difficulty * SpawnerManager.maxZombies;
+        difficultyText.text = $"Difficulty: {Difficulty}";
     }
 
     // Update is called once per frame

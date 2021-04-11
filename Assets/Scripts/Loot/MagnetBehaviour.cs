@@ -16,8 +16,8 @@ public class MagnetBehaviour : MonoBehaviour
     {
         if (follow)
         {
-            transform.root.LookAt(followTarget.transform);
-            transform.root.position += (transform.root.forward * magnetSpeed) * Time.deltaTime;
+            transform.parent.LookAt(followTarget.transform);
+            transform.parent.position += (transform.parent.forward * magnetSpeed) * Time.deltaTime;
 
             //speed up
             magnetSpeed += Time.deltaTime;

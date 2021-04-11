@@ -31,6 +31,9 @@ public class AK47Controller : WeaponController
     protected void OnBulletHit(RaycastHit hit)
     {
         //TODO: put damage here
+        var damageable = hit.collider.gameObject.GetComponent<ZombieController>();
+        if (damageable != null)
+            damageable.Damage(stats.Damage);
         Debug.Log("HIT!");
     }
 }
