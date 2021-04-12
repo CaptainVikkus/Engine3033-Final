@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BuildController), typeof(WeaponEquip))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable, IKillable
 {
     private MotionController walker;
     private CameraController viewer;
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Canvas pauseScreen;
 
     private bool isPaused;
+    private float health = 100;
 
     private void Awake()
     {
@@ -66,5 +67,20 @@ public class PlayerController : MonoBehaviour
         pauseScreen.gameObject.SetActive(isPaused);
 
         Time.timeScale = isPaused ? 0 : 1;
+    }
+
+    public void Damage(float damageTaken)
+    {
+        health -= damageTaken;
+
+        if (health <= 0)
+            Kill();
+    }
+
+    public void Kill()
+    {
+        InventoryController.ClearResources();
+
+        SceneManager.LoadScene(0);
     }
 }

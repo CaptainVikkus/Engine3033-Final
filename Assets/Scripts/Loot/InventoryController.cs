@@ -51,4 +51,12 @@ public class InventoryController : MonoBehaviour
         resourceValues[(int)resource] -= value;
         return true;
     }
+
+    public static void ClearResources()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            resourceValues[i] = 0;
+        }
+    }
 }

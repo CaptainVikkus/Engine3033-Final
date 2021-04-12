@@ -10,7 +10,7 @@ public class ZombieController : MonoBehaviour, IDamageable, IKillable
     [SerializeField] float walkSpeed = 1;
     [SerializeField] float health = 10;
 
-    private GameObject player;
+    private PlayerController player;
     private NavMeshAgent ai;
     private Animator animator;
     private static readonly int IsAttackingHash = Animator.StringToHash("isAttacking");
@@ -21,7 +21,7 @@ public class ZombieController : MonoBehaviour, IDamageable, IKillable
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerController>().gameObject;
+        player = FindObjectOfType<PlayerController>();
         animator = GetComponent<Animator>();
         ai = GetComponent<NavMeshAgent>();
         ai.speed = walkSpeed;
@@ -37,6 +37,7 @@ public class ZombieController : MonoBehaviour, IDamageable, IKillable
             animator.SetBool(IsAttackingHash, true);
             //Damage here
             canAttack = false;
+            player.Damage(5);
             StartCoroutine(AttackCooldown());
         }
     }
