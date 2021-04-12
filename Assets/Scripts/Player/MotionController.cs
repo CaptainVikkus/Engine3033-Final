@@ -51,17 +51,17 @@ public class MotionController : MonoBehaviour
         animator.SetBool(IsRunningHash, value.isPressed);
     }
 
-    public void OnJump(InputValue value)
-    {
-        //REMOVE WHEN FIXED
-        return;
-        //BROKEN
-        if (isJumping) return;
+    //public void OnJump(InputValue value)
+    //{
+    //    //REMOVE WHEN FIXED
+    //    return;
+    //    //BROKEN
+    //    if (isJumping) return;
 
-        isJumping = value.isPressed;
-        animator.SetBool(IsJumpingHash, value.isPressed);
-        rb.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
-    }
+    //    isJumping = value.isPressed;
+    //    animator.SetBool(IsJumpingHash, value.isPressed);
+    //    rb.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
+    //}
 
     // Update is called once per frame
     void Update()

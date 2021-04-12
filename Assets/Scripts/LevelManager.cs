@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class Timer
 {
@@ -68,6 +68,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         won = false;
         clock = new Timer(Timer.x, Timer.y, Timer.z);
+        clock.AddTime(0, (Difficulty - 1));
         SpawnerManager.spawnTime /= Difficulty;
         SpawnerManager.maxZombies = Difficulty * SpawnerManager.maxZombies;
         difficultyText.text = $"Difficulty: {Difficulty}";
@@ -79,8 +80,15 @@ public class LevelManager : Singleton<LevelManager>
         if (clock.Seconds <= 0 && clock.Minutes <= 0 && clock.Hours <= 0)
         {
             if (!won)
-            //TODO:: GAME WIN!!
+            {
                 StartCoroutine(GameWin());
+                if (Difficulty < 10)
+                {
+                    Difficulty++;
+                    SceneManager.LoadSceneAsync(1, LoadSceneMode.Single);
+                }
+            }
+
             return;
         }
 

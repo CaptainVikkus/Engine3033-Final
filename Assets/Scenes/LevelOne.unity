@@ -1242,7 +1242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebc65e0cefe71e4b8a5b6e65f69019f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timer: {x: 0, y: 5, z: 0}
+  Timer: {x: 0, y: 1, z: 0}
   timerText: {fileID: 548837910}
   difficultyText: {fileID: 599406175}
 --- !u!1 &787123397

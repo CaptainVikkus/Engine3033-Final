@@ -37,9 +37,9 @@ public class MainMenuBehaviour : MonoBehaviour
         mainMenu.SetActive(false);
     }
 
-    public void OpenStart()
+    public void OpenLevel(int build)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(build);
     }
 
     public void OpenQuit()

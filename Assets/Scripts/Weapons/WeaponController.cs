@@ -95,8 +95,9 @@ public class WeaponController : MonoBehaviour
         int bulletsToReload = stats.ClipSize - stats.BulletsAvailable;
         if (bulletsToReload < 0)
         {
-            stats.BulletsInClip = stats.ClipSize;
-            stats.BulletsAvailable -= stats.ClipSize;
+            bulletsToReload = stats.ClipSize - stats.BulletsInClip;
+            stats.BulletsInClip = stats.BulletsAvailable;
+            stats.BulletsAvailable -= bulletsToReload;
         }
         else
         {
@@ -107,4 +108,10 @@ public class WeaponController : MonoBehaviour
         Reloading = false;
     }
 
+    public void AddAmmo(int value)
+    {
+        if (value <=0) { return; } //do nothing
+
+        stats.BulletsAvailable += value;
+    }
 }
