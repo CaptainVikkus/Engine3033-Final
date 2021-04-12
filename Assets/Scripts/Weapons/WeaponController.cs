@@ -96,7 +96,7 @@ public class WeaponController : MonoBehaviour
         if (bulletsToReload < 0)
         {
             bulletsToReload = stats.ClipSize - stats.BulletsInClip;
-            stats.BulletsInClip = stats.BulletsAvailable;
+            stats.BulletsInClip = stats.ClipSize;
             stats.BulletsAvailable -= bulletsToReload;
         }
         else
