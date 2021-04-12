@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AK47Controller : WeaponController
 {
+    public GameObject hitFX;
+
     protected override void FireWeapon()
     {
         if (stats.BulletsInClip > 0 && !Reloading && !weaponHolder.Controller.isRunning)
@@ -12,11 +14,10 @@ public class AK47Controller : WeaponController
             if (!fireFX)
                 fireFX = Instantiate(firingAnimation, muzzle).GetComponent<ParticleSystem>();
 
-            Ray ray = new Ray(muzzle.position, transform.forward);
-            Debug.DrawLine(muzzle.position, transform.forward * stats.FireDistance, Color.yellow, .5f);
+            Ray ray = new Ray(muzzle.position, muzzle.forward);
+            Debug.DrawLine(muzzle.position, muzzle.position + muzzle.forward * stats.FireDistance, Color.yellow, .5f);
             //Check for a hit
-            if (Physics.Raycast(ray, out RaycastHit hit,
-                stats.FireDistance, stats.WeaponHitLayers)) 
+            if (Physics.Raycast(ray, out RaycastHit hit, stats.FireDistance, stats.WeaponHitLayers)) 
                 OnBulletHit(hit);
 
         }
@@ -39,7 +40,10 @@ public class AK47Controller : WeaponController
         }
         else
         {
-            Debug.Log("HIT!");
+            Debug.Log($"HIT! {hit.collider.gameObject.name}");
         }
+
+        //Spawn Flash
+        Instantiate(hitFX, hit.point, Quaternion.LookRotation(hit.normal));
     }
 }

@@ -31,8 +31,8 @@ public class CameraController : MonoBehaviour
         //clamp Up/Down Rot
         previousLook.y = Mathf.Clamp(previousLook.y, -45.0f, 45.0f);
 
-        cameraRoot.rotation = Quaternion.Euler(previousLook.y, previousLook.x, 0);
-        transform.rotation = Quaternion.Euler(0, previousLook.x, 0);
+        cameraRoot.localRotation = Quaternion.Euler(previousLook.y, 0, 0);
+        transform.Rotate(transform.up, aimValue.x * xSensitivity);
 
         //cameraRoot.localEulerAngles = Vector3.zero;
     }

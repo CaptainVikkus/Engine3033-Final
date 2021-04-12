@@ -14,6 +14,7 @@ public class ZombieController : MonoBehaviour, IDamageable, IKillable
     private NavMeshAgent ai;
     private Animator animator;
     private static readonly int IsAttackingHash = Animator.StringToHash("isAttacking");
+    private static readonly int IsDeadHash = Animator.StringToHash("isDead");
 
     private bool canAttack = true;
     
@@ -69,12 +70,17 @@ public class ZombieController : MonoBehaviour, IDamageable, IKillable
     {
         SpawnerManager.numZombies--;
         LootSpawner.SpawnLoot(10, transform);
+        animator.SetBool(IsDeadHash, true);
+    }
+
+    public void Destroy()
+    {
         Destroy(this.gameObject);
     }
 
     public void Damage(float damageTaken)
     {
-        health += damageTaken;
+        health -= damageTaken;
         if (health <= 0)
             Kill();
     }

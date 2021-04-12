@@ -82,15 +82,6 @@ public class WeaponEquip : MonoBehaviour
         if (isReloading) return; //don't restart
         StartReloading();
     }
-
-    //private void OnLook(InputValue value)
-    //{
-    //    hipTwist.rotation = Quaternion.Euler(
-    //        hipTwistStart.eulerAngles.x,
-    //        hipTwistStart.eulerAngles.y + aimLocation.rotation.eulerAngles.y,
-    //        hipTwistStart.eulerAngles.z);
-    //}
-
     private void StartFiring()
     {
         if (equippedWeapon.WeaponStat.BulletsAvailable <= 0 &&
